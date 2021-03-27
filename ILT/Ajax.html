@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script lang="javascript" type="text/javascript">
+        var url = "http://localhost:3000/emps";
+        var request;
+        if (window.XMLHttpRequest) {
+            request = new XMLHttpRequest(); // chrome
+        } else //if(window.ActiveXObject)
+        {
+            request = new ActiveXObject("Microsoft.XMLHTTP"); //Edge
+        }
+
+        function fetchInfo() {
+            request.responseType = "json";
+            request.open("get", url, true);
+            request.onload = () => 
+            {
+                console.log("Emp Data: " + request.response);
+                console.log("Type Of: " + typeof (request.response));
+                console.log("Length: " + request.response.length);
+
+                var empJsonData = request.response;
+                for (var i = 0; i < empJsonData.length; i++) 
+                {
+                    //console.log("Emp Nmae :"+empJsonData[i].empName);
+                    var x = document.createElement("span");
+                    x.setAttribute("id", "einfo" + i);
+                    var spanBody = document.createTextNode("");
+                    x.appendChild(spanBody);
+                    document.body.appendChild(x);
+                    document.getElementById("einfo" + i).innerHTML = "-" + empJsonData[i].empName;
+
+                }
+            }
+            request.send();
+        }
+        /****************************************************/
+        function addEmp() {
+            var empData = {
+                "empId": "5",
+                "empName": "XYZ",
+                "id": "5"
+            }
+            request.open("post",url,true);
+            request.setRequestHeader("Content-Type","application/json");
+            request.send((JSON.stringify(empData)))
+            console.log("Data Added...");
+        }
+    </script>
+</head>
+
+<body bgcolor="pink">
+    <button type="button" name="getEmpDataBtn" onclick="fetchInfo()">Get Info</button>
+    <button type="button" name="addEmpDataBtn" onclick="addEmp()">Add Emp</button>
+    <hr color="green">
+</body>
+
+</html>

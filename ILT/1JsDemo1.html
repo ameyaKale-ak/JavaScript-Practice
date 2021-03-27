@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script lang="javascript" type="text/javascript">
+        var empid=1;
+        var empname="Ameya";
+        var days= new Date();
+        var sal=10.00;
+        var bol=true;
+        var week=new Array("Sunday","Monday","Tuesday","Wednesday");
+        var unknown;
+        var empt=null;
+        var day=days.getDay();
+
+        function greet(){
+            alert("Welcome!!!");
+        }
+
+        switch(day){
+            case 0:alert("Today is sunday");
+            break;
+            case 7:alert("Its saturday");
+            break;
+            default: alert("Today is week day");
+        }
+
+        for( var i=0;i<4;i++)
+        {
+          document.write(week[i]+"<br>");
+        
+        }
+
+        console.log("type of empid :"+typeof(empid));
+        console.log("type of empname :"+typeof(empname));
+        console.log("type of sal :"+typeof(sal));
+        console.log("type of days :"+typeof(days));
+        console.log("type of week :"+typeof(week));
+        console.log("type of empt :"+typeof(empt));
+        console.log("type of unknown :"+typeof(unknown));
+        console.log("type of greet :"+typeof(greet));
+        greet();
+        console.log("Join :"+week.join("-"));
+       
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
