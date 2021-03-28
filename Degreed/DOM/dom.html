@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DOM</title>
+<meta charset="utf-8">
+</head>   
+<body>
+    <h1 id="h1">Document Object  Model</h1>
+    <p>This is for getElementByTag</p>
+    <p>This is for getElementByTag</p>
+    <p>This is for getElementByTag</p>
+    <p>This is for getElementByTag</p>
+    <p>This is for getElementByTag</p>
+    <p>This is for getElementByTag</p>
+    <hr/>
+    <div class="byclass">This is for getElementByClass</div>
+    <div class="byclass">This is for getElementByClass</div>
+    <div class="byclass">This is for getElementByClass</div>
+    <a href="#" class="byclass">This is also for getElementByClass</a>
+    <br>
+    <hr/>
+    <select id="selectid">
+    <option value="JS">JS</option>
+    <option value=".Net">.Net</option>
+    <option value="SAP">SAP</option>
+    </select>
+    <hr/>
+    <label for="user" >Enter username:</label>
+    <input type="text" id="user" placeholder="enter username here">
+    <div id='disuser'>
+    </div>
+    <hr/>
+    <input type="button" onclick="byID()" value="Change by Id">
+    <input type="button" onclick="byIdSelect()" value="Change by Id for select">
+    <input type="button" onclick="byTag()" value="Change by Tag">
+    <input type="button" onclick="byClass()" value="Change by Class">
+    <input type="button" onclick="disUser()" value="Display Username">
+    <script>
+        function byID(){
+            document.getElementById("h1").innerHTML="Changing Heading By id and InnerHtml"; 
+        }
+        function disUser(){
+            let u=document.getElementById("user").value;
+            document.getElementById("disuser").innerHTML=u;
+        }
+        function byIdSelect(){
+            let select= document.getElementById("selectid");
+            let disSlect=select.options[select.selectedIndex].value;
+            alert(disSlect); 
+        }
+        function byTag(){
+           let p= document.getElementsByTagName("p");
+           p[0].style.fontSize='x-large';
+           p[1].style.fontWeight='bold';
+           p[3].style.color='red';
+        }
+        function byClass(){
+            let c= document.getElementsByClassName("byclass");
+            c[0].style.fontSize='x-small';
+            c[1].style.fontWeight='bolder';
+            c[3].style.color='orange';
+        }
+    </script>
+</body>
+</html>
