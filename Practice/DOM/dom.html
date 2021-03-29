@@ -30,6 +30,8 @@
     <div id='disuser'>
     </div>
     <hr/>
+    <img id="img1" src="./images/erem.jpg" width="360" height="200" onmouseover="setNew()" onmouseout="setOld()"/>
+    <hr/>
     <input type="button" onclick="byID()" value="Change by Id">
     <input type="button" onclick="byIdSelect()" value="Change by Id for select">
     <input type="button" onclick="byTag()" value="Change by Tag">
@@ -59,6 +61,14 @@
             c[0].style.fontSize='x-small';
             c[1].style.fontWeight='bolder';
             c[3].style.color='orange';
+        }
+        function setNew(){
+        
+            document.getElementById("img1").src ="./images/kakashi.jpg";
+        }
+        function setOld(){
+        
+            document.getElementById("img1").src ="./images/erem.jpg"; 
         }
     </script>
 </body>
